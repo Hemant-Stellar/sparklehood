@@ -30,9 +30,6 @@ A comprehensive system for logging and managing AI safety incidents as part of H
 - **Responsive Design** with custom CSS
 - **Client-side validation**
 
-## Screenshots
-
-[Consider adding screenshots of the dashboard and API docs page here]
 
 ## Installation
 
@@ -146,18 +143,3 @@ Each incident document in the database has the following structure:
 }
 ```
 
-## Browser Compatibility
-
-The web interface has been tested and works with:
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-MIT
