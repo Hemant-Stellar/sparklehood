@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | HumanChain</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .endpoint {
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--secondary-color);
+      padding-left: 1rem;
+    }
+    .method {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: var(--secondary-color);
+      margin-right: 0.5rem;
+    }
+    .method.get { background-color: var(--success-color); }
+    .method.post { background-color: var(--secondary-color); }
+    .method.delete { background-color: var(--danger-color); }
+    
+    pre {
+      background-color: #f5f5f5;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>API Documentation</h1>
+      <a href="/" class="btn btn-sm">Back to Dashboard</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>HumanChain AI Safety Incident Log API</h2>
+      <p>This documentation provides information about the available endpoints and how to use them.</p>
+      
+      <div class="endpoint">
+        <h3><span class="method get">GET</span> /incidents</h3>
+        <p>Retrieve all incidents sorted by reported date (newest first)</p>
+        
+        <h4>Response</h4>
+        <pre>{
+  "success": true,
+  "count": 2,
+  "data": [
+    {
+      "_id": "612f4a9b9b4c7e001c3e5dc1",
+      "title": "Biased Model Output",
+      "description": "AI model producing biased results for minority groups",
+      "severity": "High",
+      "reported_at": "2023-08-31T15:24:59.304Z",
+      "createdAt": "2023-08-31T15:24:59.304Z",
+      "updatedAt": "2023-08-31T15:24:59.304Z"
+    },
+    {
+      "_id": "612f4a9b9b4c7e001c3e5dc2",
+      "title": "Data Privacy Breach",
+      "description": "User data leaked during model training",
+      "severity": "Medium",
+      "reported_at": "2023-08-30T09:12:45.304Z",
+      "createdAt": "2023-08-30T09:12:45.304Z",
+      "updatedAt": "2023-08-30T09:12:45.304Z"
+    }
+  ]
+}</pre>
+      </div>
+      
+      <div class="endpoint">
+        <h3><span class="method get">GET</span> /incidents/:id</h3>
+        <p>Retrieve a single incident by its ID</p>
+        
+        <h4>Response</h4>
+        <pre>{
+  "success": true,
+  "data": {
+    "_id": "612f4a9b9b4c7e001c3e5dc1",
+    "title": "Biased Model Output",
+    "description": "AI model producing biased results for minority groups",
+    "severity": "High",
+    "reported_at": "2023-08-31T15:24:59.304Z",
+    "createdAt": "2023-08-31T15:24:59.304Z",
+    "updatedAt": "2023-08-31T15:24:59.304Z"
+  }
+}</pre>
+      </div>
+      
+      <div class="endpoint">
+        <h3><span class="method post">POST</span> /incidents</h3>
+        <p>Create a new incident</p>
+        
+        <h4>Request Body</h4>
+        <pre>{
+  "title": "Biased Model Output",
+  "description": "AI model producing biased results for minority groups",
+  "severity": "High"
+}</pre>
+        
+        <h4>Response</h4>
+        <pre>{
+  "success": true,
+  "data": {
+    "_id": "612f4a9b9b4c7e001c3e5dc1",
+    "title": "Biased Model Output",
+    "description": "AI model producing biased results for minority groups",
+    "severity": "High",
+    "reported_at": "2023-08-31T15:24:59.304Z",
+    "createdAt": "2023-08-31T15:24:59.304Z",
+    "updatedAt": "2023-08-31T15:24:59.304Z"
+  }
+}</pre>
+      </div>
+      
+      <div class="endpoint">
+        <h3><span class="method delete">DELETE</span> /incidents/:id</h3>
+        <p>Delete an incident by its ID</p>
+        
+        <h4>Response</h4>
+        <p>Status Code: 204 No Content</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <%= new Date().getFullYear() %> HumanChain AI Safety Initiatives</p>
+      <p><a href="/">Back to Dashboard</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
